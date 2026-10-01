@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>角色档案 · 未定事件簿</title>
+  <link rel="stylesheet" href="style.css">
+  <!-- Cytoscape CDN -->
+  <script src="https://unpkg.com/cytoscape@3.28.1/dist/cytoscape.min.js"></script>
+</head>
+<body>
+  <header class="topbar">
+    <h1>角色档案</h1>
+    <div class="view-switch">
+      <button data-view="list" class="active">列表</button>
+      <button data-view="graph">关系网</button>
+    </div>
+  </header>
+
+  <main>
+    <!-- 列表视图 -->
+    <section id="view-list" class="view active">
+      <div class="search-bar">
+        <input type="text" id="search" placeholder="搜索角色名、身份、标签…">
+      </div>
+      <div id="char-list" class="char-list"></div>
+    </section>
+
+    <!-- 关系网视图 -->
+    <section id="view-graph" class="view">
+      <div class="graph-toolbar">
+        <span>当前中心：</span>
+        <strong id="center-name">我（蔷薇）</strong>
+        <button id="reset-center">返回主控</button>
+      </div>
+      <div id="cy"></div>
+      <p class="hint">点击节点可以以它为中心重新展开</p>
+    </section>
+  </main>
+
+  <!-- 角色详情弹层 -->
+  <div id="detail-overlay" class="overlay">
+    <div class="detail-panel">
+      <button id="close-detail" class="close-btn">×</button>
+      <div id="detail-content"></div>
+    </div>
+  </div>
+
+  <script src="data.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
